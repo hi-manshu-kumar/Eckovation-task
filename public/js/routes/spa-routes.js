@@ -1,4 +1,4 @@
-app.config(['$routeProvider', '$locationProvider', '$stateProvider' ,'$urlRouterProvider', 'LOGIN', 'LOGOUT', 'REGISTER', 'COMMUNITY', 'PROFILE', function($routeProvider, $locationProvider, $stateProvider, $urlRouterProvider, LOGIN, LOGOUT, REGISTER, COMMUNITY, PROFILE){
+app.config(['$routeProvider', '$locationProvider', '$stateProvider' ,'$urlRouterProvider', 'ABOUT', 'COMMUNITY', 'PROFILE', function($routeProvider, $locationProvider, $stateProvider, $urlRouterProvider, ABOUT, COMMUNITY, PROFILE){
     $locationProvider.hashPrefix('');
     $urlRouterProvider.otherwise('/');
 
@@ -9,11 +9,11 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider' ,'$urlRouter
         controller: "homeCtrl"
     }
 
-    var logoutState = {
-        name: 'logout',
-        url: LOGOUT,
-        templateUrl: "logout.html",
-        controller: "logoutCtrl"
+    var aboutState = {
+        name: 'about',
+        url: ABOUT,
+        templateUrl: "about.html",
+        controller: "aboutCtrl"
     }
 
     var communityState = {
@@ -31,7 +31,7 @@ app.config(['$routeProvider', '$locationProvider', '$stateProvider' ,'$urlRouter
     }
 
     $stateProvider.state(indexState);  
-    $stateProvider.state(logoutState);  
+    $stateProvider.state(aboutState);  
     $stateProvider.state(communityState);  
     $stateProvider.state(profileState);  
     

@@ -11,19 +11,18 @@ const storageEngine = multer.diskStorage({
 
 //init
 const upload = multer({
-    storage: storageEngine
-    // ,
-    // fileFilter: function (req, file, callback) {
-    //     validateFile(file, callback);
-    // }
+    storage: storageEngine,
+    fileFilter: function (req, file, callback) {
+        validateFile(file, callback);
+    }
 }).single('myImage');
 
 
 var validateFile = function (file, cb) {
     allowedFileTypes = /mp3|flac|3gp|wav/;
     const extension = allowedFileTypes.test(path.extname(file.originalname).toLowerCase());
-    const mimeType = allowedFileTypes.test(file.mimetype);
-    if (extension && mimeType) {
+    // const mimeType = allowedFileTypes.test(file.mimetype);
+    if (extension ) {
         return cb(null, true);
     } else {
         cb("Invalid file type. Only mp3, flac, 3gp and wav file are allowed.")
